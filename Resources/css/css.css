@@ -1,0 +1,19 @@
+.pairings-table {
+    min-width: 500px;
+}
+
+.inner-table {
+    width: 100%;
+}
+
+.inner-table td {
+    width: 40%;
+}
+
+.add-table {
+    width: 500;
+}
+
+.button-cell {
+    text-align: right;
+}
