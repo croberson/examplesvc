@@ -1,9 +1,6 @@
 <?php
 namespace Api\Models;
 
-require 'vendor/db.php';
-//require_once 'Vendor/db_local.php';
-
 use Api\Vendor as Vendor;
 
 /**
