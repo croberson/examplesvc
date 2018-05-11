@@ -49,9 +49,6 @@ class SuperApiController extends \Api\Vendor\Rest
             $this->response('',406);
         }
         
-        //begin the transaction
-        mysqli_query($_SESSION['db']->getDB(), "BEGIN");
-        
         //add the hero
         $heroId = $this->HeroesModel->addHero($this->_request['name']);
         
@@ -60,12 +57,6 @@ class SuperApiController extends \Api\Vendor\Rest
         
         //add the pairing
         $this->PairingsModel->addPairing($heroId, $powerId);
-        
-        //commit transaction
-        if (!mysqli_query($_SESSION['db']->getDB(), "COMMIT")) {
-            print("Transaction commit failed\n");
-            exit();
-        }
         
         //get the new list of pairings
         $data = array();
@@ -85,9 +76,6 @@ class SuperApiController extends \Api\Vendor\Rest
             $this->response('',406);
         }
         
-        //begin the transaction
-        mysqli_query($_SESSION['db']->getDB(), "BEGIN");
-        
         $pairing = $this->_request['pairing'];
         
         //delete the hero
@@ -98,12 +86,6 @@ class SuperApiController extends \Api\Vendor\Rest
         
         //delete the pairing
         $this->PairingsModel->deletePairing($pairing->id);
-        
-        //commit transaction
-        if (!mysqli_query($_SESSION['db']->getDB(), "COMMIT")) {
-            print("Transaction commit failed\n");
-            exit();
-        }
     }
     
     /**
@@ -118,20 +100,11 @@ class SuperApiController extends \Api\Vendor\Rest
         
         $pairing = $this->_request['pairing'];
         
-        //begin the transaction
-        mysqli_query($_SESSION['db']->getDB(), "BEGIN");
-        
         //edit the hero
         $heroId = $this->HeroesModel->editHero($pairing->name, $pairing->heroId);
         
         //edit the power
         $powerId = $this->PowersModel->editPower($pairing->power, $pairing->powerId);
-        
-        //commit transaction
-        if (!mysqli_query($_SESSION['db']->getDB(), "COMMIT")) {
-            print("Transaction commit failed\n");
-            exit();
-        }
     }
     
     //Encode array into JSON

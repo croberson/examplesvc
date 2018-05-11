@@ -43,7 +43,7 @@ app.controller("mainCtrl", ['$scope', '$http', function($scope, $http){
     };
     
     $scope.editPairing = function(pairing) {
-        if($scope.pairing) {
+        if(pairing.name && pairing.power) {
             $http({
                 method: 'PUT',
                 data:   {'pairing' : pairing},
