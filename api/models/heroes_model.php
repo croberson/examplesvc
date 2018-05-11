@@ -3,7 +3,7 @@ namespace Api\Models;
 
 use Api\Vendor as Vendor;
 
-require_once 'BaseModel.php';
+require_once 'base_model.php';
 
 class HeroesModel extends BaseModel {
     public function __construct() {

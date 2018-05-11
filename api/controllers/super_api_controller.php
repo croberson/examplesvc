@@ -3,10 +3,10 @@ namespace Api\Controllers;
 
 use Api\Models as Models;
 
-require_once "/Vendor/Rest.php";
-require_once "/Models/HeroesModel.php";
-require_once "/Models/PowersModel.php";
-require_once "/Models/PairingsModel.php";
+require_once "/vendor/rest.php";
+require_once "/models/heroes_model.php";
+require_once "/models/powers_model.php";
+require_once "/models/pairings_model.php";
 
 class SuperApiController extends \Api\Vendor\Rest
 {
