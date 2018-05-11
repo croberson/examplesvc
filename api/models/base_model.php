@@ -1,6 +1,9 @@
 <?php
 namespace Api\Models;
 
+require 'vendor/db.php';
+//require_once 'Vendor/db_local.php';
+
 use Api\Vendor as Vendor;
 
 /**
@@ -12,11 +15,12 @@ class BaseModel {
     protected $db;
     
     protected function  __construct() {
-        //use the db object from the session
+        //Get a db object.
         //A future improvement would be to wrap in try/catch
         //and fail gracefully if something happens to the session
         //and db object is not found.
-        $this->db = $_SESSION['db'];
+        
+        $this->db = new Vendor\DB();
     }
     
     /**
