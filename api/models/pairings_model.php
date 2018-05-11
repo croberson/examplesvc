@@ -5,8 +5,10 @@ use Api\Vendor as Vendor;
 
 require_once 'base_model.php';
 
-class PairingsModel extends BaseModel {
-    public function __construct() {
+class PairingsModel extends BaseModel
+{
+    public function __construct()
+    {
         parent::__construct();
         $this->table = "pairings";
     }
@@ -14,7 +16,8 @@ class PairingsModel extends BaseModel {
     /**
      * This function gets all pairings from the database.
      */
-    public function getPairings() {
+    public function getPairings()
+    {
         $query =    "SELECT p.id AS id, h.name AS name, pow.name as power, h.id AS heroId, pow.id AS powerId
                      FROM pairings AS p
                      LEFT JOIN heroes AS h ON h.id = p.hero_id
@@ -26,7 +29,8 @@ class PairingsModel extends BaseModel {
     /**
      * This function adds a pairing to the database.
      */
-    public function addPairing($heroId, $powerId) {
+    public function addPairing($heroId, $powerId)
+    {
         //clean the inputs
         $name = mysql_real_escape_string($heroId);
         $power = mysql_real_escape_string($powerId);
@@ -39,7 +43,8 @@ class PairingsModel extends BaseModel {
     /**
      * This function deletes a pairing to the database.
      */
-    public function deletePairing($id) {
+    public function deletePairing($id)
+    {
         $query = "DELETE FROM pairings WHERE id = $id";
         $this->db->execute($query);
     }

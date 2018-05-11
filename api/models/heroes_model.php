@@ -5,8 +5,10 @@ use Api\Vendor as Vendor;
 
 require_once 'base_model.php';
 
-class HeroesModel extends BaseModel {
-    public function __construct() {
+class HeroesModel extends BaseModel
+{
+    public function __construct()
+    {
         parent::__construct();
         $this->table = "pairings";
     }
@@ -14,7 +16,8 @@ class HeroesModel extends BaseModel {
     /**
      * This function adds a hero to the database.
      */
-    public function addHero($name) {
+    public function addHero($name)
+    {
         //clean the input
         $name = mysql_real_escape_string($name);
         
@@ -27,7 +30,8 @@ class HeroesModel extends BaseModel {
     /**
      * This function edits a hero to the database.
      */
-    public function editHero($name, $id) {
+    public function editHero($name, $id)
+    {
         //clean the inputs
         $name = mysql_real_escape_string($name);
         
@@ -38,7 +42,8 @@ class HeroesModel extends BaseModel {
     /**
      * This function deletes a hero to the database.
      */
-    public function deleteHero($id) {
+    public function deleteHero($id)
+    {
         $query = "DELETE FROM heroes WHERE id = $id";
         $this->db->execute($query);
     }

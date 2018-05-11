@@ -5,8 +5,10 @@ use Api\Vendor as Vendor;
 
 require_once 'base_model.php';
 
-class PowersModel extends BaseModel {
-    public function __construct() {
+class PowersModel extends BaseModel
+{
+    public function __construct()
+    {
         parent::__construct();
         $this->table = "pairings";
     }
@@ -14,7 +16,8 @@ class PowersModel extends BaseModel {
     /**
      * This function adds a power to the database.
      */
-    public function addPower($power) {
+    public function addPower($power)
+    {
         //clean the input
         $power = mysql_real_escape_string($power);
         
@@ -27,7 +30,8 @@ class PowersModel extends BaseModel {
     /**
      * This function edits a power to the database.
      */
-    public function editPower($name, $id) {
+    public function editPower($name, $id)
+    {
         //clean the input
         $name = mysql_real_escape_string($name);
         
@@ -38,7 +42,8 @@ class PowersModel extends BaseModel {
     /**
      * This function deletes a power to the database.
      */
-    public function deletePower($id) {
+    public function deletePower($id)
+    {
         $query = "DELETE FROM powers WHERE id = $id";
         $this->db->execute($query);
     }
