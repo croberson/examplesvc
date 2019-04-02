@@ -8,7 +8,7 @@ namespace Api\Vendor;
 class DB {
     const DB_SERVER = "localhost";
     const DB_USER = "examplesvc";
-    const DB_PASSWORD = "Freestyle#1";
+    const DB_PASSWORD = "*********************";
     const DB = "examplesvc";
     
     private $db = null;
